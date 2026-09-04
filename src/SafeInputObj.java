@@ -9,8 +9,8 @@ public class SafeInputObj
        this.pipe = new Scanner(System.in);
     }
 
-    public SafeInputObj(Scanner pipe){
-        this.pipe = pipe;
+    public SafeInputObj(Scanner scanner){
+        this.pipe = scanner;
     }
 
    public String getNonZeroLenString(String prompt)
