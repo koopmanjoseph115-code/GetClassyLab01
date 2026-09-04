@@ -10,13 +10,13 @@ class PersonTest {
     @BeforeEach
     void setUp()
     {
-        p1 = new Person("00000A", "Bob", "Tester1", 1955);
-        p2 = new Person("00000B", "Sally", "Tester2", 1975);
+        p1 = new Person("00000A", "Bob", "Tester1", "Mr.", 1955);
+        p2 = new Person("00000B", "Sally", "Tester2", "Mrs.", 1975);
         Person.setIDSeed(0);
-        p3 = new Person("Bob", "Tester3", 1960);
-        p4 = new Person( "Sally", "Tester4", 1965);
-        p5 = new Person( "Fred", "Tester5", 1970);
-        p6 = new Person( "Cindy", "Tester6", 1975);
+        p3 = new Person("Bob", "Tester3", "Mr.", 1960);
+        p4 = new Person( "Sally", "Tester4", "Ms.", 1965);
+        p5 = new Person( "Fred", "Tester5", "Dr.", 1970);
+        p6 = new Person( "Cindy", "Tester6", "Hon", 1975);
 
 
     }
@@ -44,6 +44,11 @@ class PersonTest {
     }
 
     @Test
+    void getTitle() {
+        assertEquals("Mr.", p1.getTitle());
+    }
+
+    @Test
     void getYOB() {
         assertEquals(1955, p1.getYOB());
     }
@@ -65,6 +70,12 @@ class PersonTest {
     void setLastName() {
         p1.setLastName("Tester2");
         assertEquals("Tester2", p1.getLastName());
+    }
+
+    @Test
+    void setTitle() {
+        p1.setTitle("Mister");
+        assertEquals("Mister", p1.getTitle());
     }
 
     @Test

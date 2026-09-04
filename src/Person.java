@@ -5,6 +5,7 @@ public class Person
     private String IDNum;
     private String firstName;
     private String lastName;
+    private String title;
     private int YOB;
     static private int IDSeed =  1;
 
@@ -16,19 +17,21 @@ public class Person
         return IDSeed;
     }
 
-    public Person(String IDNum, String firstName, String lastName, int YOB)
+    public Person(String IDNum, String firstName, String lastName, String title, int YOB)
     {
         this.IDNum = IDNum;
         this.firstName = firstName;
         this.lastName = lastName;
         this.YOB = YOB;
+        this.title = title;
     }
 
-    public Person(String firstName, String lastName, int YOB)
+    public Person(String firstName, String lastName, String title, int YOB)
     {
         this.IDNum = this.genIDNum();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.title = title;
         this.YOB = YOB;
     }
 
@@ -69,6 +72,14 @@ public class Person
         this.lastName = lastName;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public int getYOB() {
         return YOB;
     }
@@ -83,6 +94,7 @@ public class Person
                 "IDNum='" + IDNum + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", title='" + title + '\'' +
                 ", YOB=" + YOB +
                 '}';
     }
@@ -92,7 +104,7 @@ public class Person
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return YOB == person.YOB && IDNum.equals(person.IDNum) && firstName.equals(person.firstName) && lastName.equals(person.lastName);
+        return YOB == person.YOB && IDNum.equals(person.IDNum) && firstName.equals(person.firstName) && lastName.equals(person.lastName) && title.equals(person.title);
     }
 
     public String toJSONRecord()
@@ -102,6 +114,7 @@ public class Person
         retString =  "{" + DQ + "IDNum" + DQ + ":" + DQ + this.IDNum + DQ + ",";
         retString += DQ + "firstName" + DQ + ":" + DQ + this.firstName + DQ + ",";
         retString += " " + DQ + "lastName"  + DQ + ":" + DQ + this.lastName + DQ + ",";
+        retString += " " + DQ + "title"  + DQ + ":" + DQ + this.title + DQ + ",";
         retString += " " + DQ + "YOB"  + DQ + ":" + this.YOB + "}";
 
         return retString;
@@ -114,12 +127,13 @@ public class Person
         retString = "<Person>" + "<IDNum>" + this.IDNum + "</IDNum>";
         retString += "<firstName>" + this.firstName + "</firstName>";
         retString += "<lastName>" + this.lastName + "</lastName>";
+        retString += "title" + this.title + "title";
         retString += "<YOB>" + this.YOB + "</YOB></Person>";
 
         return retString;
     }
     public String toCSVRecord() {
-        return  this.IDNum + ", " + this.firstName + "," + this.lastName + "," + YOB;
+        return  this.IDNum + ", " + this.firstName + "," + this.lastName + ", " + this.title + "," + YOB;
     }
 }
 

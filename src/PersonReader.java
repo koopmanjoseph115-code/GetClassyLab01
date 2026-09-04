@@ -1,4 +1,4 @@
-PersonGenerator01import javax.swing.*;
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
