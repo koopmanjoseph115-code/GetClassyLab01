@@ -89,6 +89,7 @@ class PersonTest {
         p1.setIDNum("00000B");
         p1.setFirstName("Sally");
         p1.setLastName("Tester2");
+        p1.setTitle("Mrs.");
         p1.setYOB(1975);
         assertEquals(true, p1.equals(p2));
     }
