@@ -11,7 +11,7 @@ public class ProductGenerator
 {
     public static void main(String[] args)
     {
-        ArrayList<String> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
         Scanner in = new Scanner(System.in);
 
         File workingDirectory = new File(System.getProperty("user.dir"));
@@ -31,15 +31,16 @@ public class ProductGenerator
             name = inputObj.getNonZeroLenString("Enter the name of the product: ");
             description = inputObj.getNonZeroLenString("Enter the description of the product: ");
             cost = inputObj.getRangedDouble("Enter amount", 0.01, 999999.99);
-            productRec = ID + ", " + name + ", " + description + ", " + cost;
-            products.add(productRec);
+
+            Product product = new Product(ID, name, description, cost);
+            products.add(product);
 
             done = inputObj.getYNConfirm("Are you done?" );
 
         }while(!done);
 
 
-        for( String p: products)
+        for( Product p: products)
             System.out.println(p);
 
 
@@ -54,9 +55,9 @@ public class ProductGenerator
 
             // Finally can write the file LOL!
 
-            for(String rec : products)
+            for(Product product : products)
             {
-                writer.write(rec, 0, rec.length());  // stupid syntax for write rec
+                writer.write(product.toCSVRecord(), 0, product.toCSVRecord().length());  // stupid syntax for write rec
                 // 0 is where to start (1st char) the write
                 // rec. length() is how many chars to write (all)
                 writer.newLine();  // adds the new line
