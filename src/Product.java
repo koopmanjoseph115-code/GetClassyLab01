@@ -21,6 +21,9 @@ public class Product
         this.name = name;
         this.description = description;
         this.cost = cost;
+
+        Product.IDSeed++;
+
     }
 
     public Product(String name, String description, double cost)
@@ -31,10 +34,6 @@ public class Product
         this.cost = cost;
     }
 
-
-    public String getIDNum() {
-        return ID;
-    }
 
     private String genID() {
         String newID = "" + IDSeed;
@@ -48,8 +47,12 @@ public class Product
         return newID;
     }
 
-    public void setIDNum(String ID) {
+    public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public String getID() {
+        return ID;
     }
 
     public String getName() {
