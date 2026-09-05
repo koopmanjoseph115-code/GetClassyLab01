@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class SafeInputObj
 {
-   private static Scanner pipe;
+   private Scanner pipe;
 
     public SafeInputObj(){
        this.pipe = new Scanner(System.in);

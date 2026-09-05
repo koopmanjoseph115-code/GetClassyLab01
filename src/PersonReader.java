@@ -60,6 +60,7 @@ public class PersonReader
                 while(reader.ready())
                 {
                     rec = reader.readLine();
+                    if (rec != null && !rec.trim().isEmpty())
                     lines.add(rec);  // read all the lines into memory in an array list
                     line++;
                     // echo to screen
@@ -88,7 +89,7 @@ public class PersonReader
                         lastName  = fields[2].trim();
                         title     = fields[3].trim();
                         yob       = Integer.parseInt(fields[4].trim());
-                        System.out.printf("\n%-8s%-25s%-25s%-6s%6d", id, firstName, lastName, title, yob);
+                        System.out.printf("%-8s%-25s%-25s%-6s%6d\n", id, firstName, lastName, title, yob);
                     }
                     else
                     {

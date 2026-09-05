@@ -50,6 +50,7 @@ public class ProductReader
                 while(reader.ready())
                 {
                     rec = reader.readLine();
+                    if (rec != null && !rec.trim().isEmpty())
                     lines.add(rec);  // read all the lines into memory in an array list
                     line++;
                     // echo to screen
